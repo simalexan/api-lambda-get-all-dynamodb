@@ -3,7 +3,6 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const processResponse = require('./process-response');
 const TABLE_NAME = process.env.TABLE_NAME;
 const IS_CORS = process.env.IS_CORS;
-const PRIMARY_KEY = process.env.PRIMARY_KEY;
 
 exports.handler = (event) => {
     if (event.httpMethod === 'OPTIONS') {

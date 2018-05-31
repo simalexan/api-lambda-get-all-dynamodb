@@ -71,7 +71,7 @@ Resources:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
       StreamSpecification:
-        StreamViewType: NEW_AND_OLD_IMAGES
+        StreamViewType: NEW_IMAGE
 Outputs:
   ApiUrl:
     Value: !Sub https://${GetAllApi}.execute-api.${AWS::Region}.amazonaws.com/prod/get-all

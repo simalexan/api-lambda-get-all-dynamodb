@@ -1,7 +1,8 @@
 
-## Api Gateway -> Lambda (Scan - Get All) -> DynamoDB
+# Api Gateway -> Lambda (Scan - Get All) -> DynamoDB
 
-#### Description
+## Description
+
 This is a Lambda function that receives an API Gateway request and retrieves (gets) **all items** from a DynamoDB table.
 
 - Supports CORS.

@@ -21,22 +21,17 @@ Resources:
       Runtime: nodejs12.x
       Environment:
         Variables:
-          TABLE_NAME: !Ref DynamoDBTable
+          TABLE_NAME: !Ref TableName
           CORS_ORIGIN: !Ref CorsOrigin
       Policies:
         - DynamoDBCrudPolicy:
-            TableName: !Ref DynamoDBTable
+            TableName: !Ref TableName
       Events:
         GetAllApi:
           Type: Api
           Properties:
             Path: /{items}
             Method: GET
-        OptionsApi:
-          Type: Api
-          Properties:
-            Path: /{items}
-            Method: OPTIONS
 Outputs:
   ApiUrl:
     Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/${DynamoDBTable}

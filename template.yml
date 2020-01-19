@@ -34,7 +34,7 @@ Resources:
             Method: GET
 Outputs:
   ApiUrl:
-    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/${DynamoDBTable}
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/${TableName}
     Description: The URL of the API Gateway you invoke with a GET request to retrieve all of your items in a DynamoDB Table.
   DynamoDBTable:
     Value: !Ref TableName

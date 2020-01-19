@@ -1,10 +1,10 @@
 {
   "name": "api-lambda-get-all-dynamodb",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket api-lambda-get-all-dynamodb-bucket",
+    "package": "aws cloudformation package --template-file template.yml --output-template-file output.yml --s3-bucket app-repo-components",
     "deploy": "aws cloudformation deploy --template-file output.yml --stack-name api-lambda-get-all-dynamodb --capabilities CAPABILITY_IAM",
     "deploy:test": "aws cloudformation deploy --template-file output.yml --stack-name api-lambda-get-all-dynamodb --capabilities CAPABILITY_IAM --parameter-overrides DynamoDBTable=$npm_package_config_table_name",
     "qd": "npm run package && npm run deploy"

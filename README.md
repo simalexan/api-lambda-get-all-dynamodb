@@ -20,9 +20,9 @@ This component has two CloudFormation deployment parameters:
 
 It's a Nuts & Bolts application component for AWS Serverless Application Repository.
 
-## Latest Release - 2.0.0
+## Latest Release - 2.1.0
 
-Completely removed the DynamoDB table creation, requiring the user to give an existing DynamoDB Table Name.
+- Upgraded to Node.js 12.x LTS
 
 ## Roadmap - Upcoming changes
 

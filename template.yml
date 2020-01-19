@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 Parameters:
-  DynamoDBTable:
+  TableName:
     Type: String
     Description: (Required) The name of the existing DynamoDB table you want to get records from. Minimum 3 characters
     MinLength: 3
@@ -10,7 +10,7 @@ Parameters:
     ConstraintDescription: 'Required parameter. Can be characters and underscores. No numbers allowed.'
   CorsOrigin:
     Type: String
-    Default: ''
+    Default: "'*'"
     Description: (Optional) Cross-origin resource sharing (CORS) Origin. You can specify a single origin, all "*" or leave empty and no CORS will be applied.
     MaxLength: 250
 Resources:
@@ -18,7 +18,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs8.10
+      Runtime: nodejs12.x
       Environment:
         Variables:
           TABLE_NAME: !Ref DynamoDBTable
@@ -38,9 +38,9 @@ Resources:
             Path: /{items}
             Method: OPTIONS
 Outputs:
-  Api:
+  ApiUrl:
     Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/${DynamoDBTable}
     Description: The URL of the API Gateway you invoke with a GET request to retrieve all of your items in a DynamoDB Table.
   DynamoDBTable:
-    Value: !Ref DynamoDBTable
+    Value: !Ref TableName
     Description: The name of the DynamoDB Table

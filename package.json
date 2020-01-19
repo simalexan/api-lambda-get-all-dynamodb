@@ -10,7 +10,7 @@
     "qd": "npm run package && npm run deploy"
   },
   "config": {
-    "table_name": "chairs"
+    "table_name": "customers"
   },
   "keywords": [],
   "author": "Aleksandar Simovic <alexander.simovic@gmail.com>",
